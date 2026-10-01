@@ -78,8 +78,8 @@ SD_Model::SD_Model(const bso::structural_design::sd_model& sd,
 	trussprops.translucent = false;
 	trussprops.twosided = true;
 
-	shellprops.ambient = yellow;
-	shellprops.diffuse = yellow;
+	shellprops.ambient = grey;//yellow;
+	shellprops.diffuse = grey;//yellow;
 	shellprops.specular = rgba(0.1,0.1,0.1,1);
 	shellprops.shininess = 60;
 	shellprops.translucent = false;
