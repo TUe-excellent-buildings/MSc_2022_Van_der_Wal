@@ -14,4 +14,4 @@ folder sanne_code: files used to carry out the simulations in the MSc thesis Tab
 
 folder scdp_space_source: files used to do the simulations in the MSc thesis Figure 17.
 
-Hèrm Hofmeyer, Oktober 10, 2026
+Tessa Ezendam, Oktober 10, 2026
