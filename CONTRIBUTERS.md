@@ -32,3 +32,6 @@ Main contributor/developer of the repository.
 
 ##### ir. D. (Dennis) Peeten
 * Development and implementation of visualization package
+
+##### ir. S. (Sanne) van der Wal
+* Development and implementation of the Tying method
