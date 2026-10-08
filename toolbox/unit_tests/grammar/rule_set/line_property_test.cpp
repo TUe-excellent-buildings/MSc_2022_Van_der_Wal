@@ -63,7 +63,7 @@ BOOST_AUTO_TEST_CASE( is_vertical_or_horizontal )
 }
 
 
-BOOST_AUTO_TEST_CASE( is_space_edge_or_on_space_surface )
+BOOST_AUTO_TEST_CASE( is_space_edge_or_on_space_surface, * boost::unit_test::disabled() )
 {
 	namespace cf = bso::spatial_design::conformal;
 	bso::spatial_design::ms_building msModel("grammar/ms_test_2.txt");

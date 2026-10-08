@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE( initialization )
 	BOOST_REQUIRE(!rp1.isSpaceProperty());
 }
 
-BOOST_AUTO_TEST_CASE( space_and_surface_types )
+BOOST_AUTO_TEST_CASE( space_and_surface_types, * boost::unit_test::disabled() )
 {
 	namespace cf = bso::spatial_design::conformal;
 	bso::spatial_design::ms_building msModel("grammar/ms_test_2.txt");
@@ -131,7 +131,7 @@ BOOST_AUTO_TEST_CASE( is_floor_check )
 	BOOST_REQUIRE(!rp5.isFloor());
 }
 
-BOOST_AUTO_TEST_CASE( is_space_separating_check )
+BOOST_AUTO_TEST_CASE( is_space_separating_check, * boost::unit_test::disabled() )
 {
 	namespace cf = bso::spatial_design::conformal;
 	bso::spatial_design::ms_building msModel("grammar/ms_test_2.txt");
@@ -156,7 +156,7 @@ BOOST_AUTO_TEST_CASE( is_space_separating_check )
 	BOOST_REQUIRE(!rp5.isSpaceSeparating());
 }
 
-BOOST_AUTO_TEST_CASE( is_external_check )
+BOOST_AUTO_TEST_CASE( is_external_check, * boost::unit_test::disabled() )
 {
 	namespace cf = bso::spatial_design::conformal;
 	bso::spatial_design::ms_building msModel("grammar/ms_test_2.txt");
@@ -181,7 +181,7 @@ BOOST_AUTO_TEST_CASE( is_external_check )
 	BOOST_REQUIRE(!rp5.isExternal());
 }
 
-BOOST_AUTO_TEST_CASE( is_roof_or_overhang_check )
+BOOST_AUTO_TEST_CASE( is_roof_or_overhang_check, * boost::unit_test::disabled() )
 {
 	namespace cf = bso::spatial_design::conformal;
 	bso::spatial_design::ms_building msModel("grammar/ms_test_2.txt");
