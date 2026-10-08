@@ -11,5 +11,5 @@ The following code is included in this directory:
 
 Furthermore the following supplementary data is supplied:
 
-* the building spatial designs used for the each of the case studies
+* the building spatial designs used for each of the case studies with their A, B, and C identifiers linking to the publications design names.
 * the mesh size adjustable settings file (structural and thermal design) used for the case studies

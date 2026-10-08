@@ -1,7 +1,7 @@
 #libraries
 BOOST   = /usr/include/boost
 EIGEN   = /usr/include/eigen
-BSO     = /home/tessa/toolbox
+BSO     = $(abspath ..)
 ALL_LIB = -I$(BOOST) -I$(EIGEN) -I$(BSO)
 
 #compiler settings

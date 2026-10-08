@@ -259,9 +259,11 @@ $ make clean cls all
 
 Possible output of running the unit tests successfully may look as follows:
 ```bash
-> Running 359 test cases...
-> 
-> *** No errors detected
+Running 346 test cases...
+generateNFT check
+generateNFT check
+
+*** No errors detected
 ```
 
 Alternatively, also sub-parts of the toolbox can be tested. This can be achieved by replacing the `all` argument in the `make` command above by any of the following arguments:
