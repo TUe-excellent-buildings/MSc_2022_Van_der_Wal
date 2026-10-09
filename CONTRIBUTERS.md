@@ -39,8 +39,8 @@ Main contributor/developer of the repository.
 * Development and implementation of zoning of building spatial designs using the building conformal model. (not yet included in this repository)
 * Implementation of structural stabilization. (not yet included in this repository)
 
-##### ir. D. (Dennis) Peeten
+###### ir. D. (Dennis) Peeten
 * Development and implementation of visualization package
 
-##### ir. S. (Sanne) van der Wal
+###### ir. S. (Sanne) van der Wal
 * Development and implementation of the Tying method
