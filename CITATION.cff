@@ -14,7 +14,7 @@ date-released: 2026-10-9
 
 bibtex:
 @software{bso_toolbox,
-title = {BSO toolbox: Tying method},
+title = {{BSO toolbox: Tying method}},
 author = {Ezendam, Tessa and van der Wal, Sanne and Hofmeyer, H\'{e}rm},
 version = {v1.0.0},
 publisher = {Zenodo},
