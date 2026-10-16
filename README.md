@@ -4,7 +4,7 @@
 
 These folders profide the code of the BSO toolbox including the Tying method.
 
-The origonal software were copied from Sanne van der Wal's home directory on a TU/e Linux workstation. Containing both the origonal BSO toolbox version and the extensions Sanne van der Wal made to allow for the Tying method. Later on, the main code for the following publication was added to this repository: 
+The origonal software contains both the origonal BSO toolbox version and the extensions Sanne van der Wal made to allow for the Tying method. Later on, the main code for the following publication was added to this repository: 
 
 Ezendam, T., Hofmeyer, H., van der Wal, S., Perevendieva K.G., and Emmerich, M. T. M. "Handling Complex Building Geometries for Disciplinary Processing in Conceptual Building Design Simulation and Optimization". In: Computing in Civil Engineering (2026). DOI: 10.1061/JCCEE5.CPENG-6922
 
