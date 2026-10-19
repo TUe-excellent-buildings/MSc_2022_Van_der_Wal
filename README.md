@@ -267,7 +267,7 @@ Run the example by typing the following command in the terminal:
 $ ./main
 ```
 The code request which design you want to run, which the user can insert by either specifying design 'A', 'B', or 'C'. 
-Afterwards, the code is run and the following output should then look as follows.
+Afterwards, the code is run and the resultingg output should then look as follows.
 
 ```bash
 Please insert the character for the design to analyze either A, B or C: A
