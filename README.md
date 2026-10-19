@@ -7,7 +7,9 @@ This repository contains a version of the C++ library **Building Spatial Design 
 The latest version recommended for future development can be found at:
  https://github.com/TUe-excellent-buildings/BSO-toolbox-V2/
 
-This repository contains a specific version of the toolbox that includes the **Tying Method**. This Tying method was first presented and analysed in the MSc thesis of Sanne van der Wall:
+This repository contains a specific version of the toolbox that includes the **Tying Method**. This Tying method was first presented and analysed in the MSc thesis of Sanne van der Wal:
+
+van der Wal, S. (2022). Tying overlapping meshes for building spatial design optimization (Master's thesis, Eindhoven University of Technology)
 
 Later on, the Tying Method was compared with two alternative methods, and the results were published in:
 
