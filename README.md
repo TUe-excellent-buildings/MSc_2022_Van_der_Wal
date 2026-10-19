@@ -302,7 +302,7 @@ The unit tests are also included in the repository, and in case of developing/co
 Depending on the location of the repository on your local machine, moving to the unit test directory may be achieved as follows.
 
 ```bash
-$ cd /usr/include/BSO-toolbox/unit_tests
+$ cd /usr/include/MSc_2022_Van_der_Wal/toolbox/unit_tests
 ```
 
 The unit test directory contains a makefile with which the unit tests can be compiled.
