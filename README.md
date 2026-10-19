@@ -174,92 +174,124 @@ If the clone was successful, the BSO toolbox is now cloned onto your local machi
 
 ##### 7. Compile and run the example.
 
-An example of how the toolbox can be used has been added to the repository as well (`../BSO-toolbox/example`).
+An example of how the code used for publication (`..MSc_2022_Van_der_Wal/code_used_for_publication/Tying_method`) can be compiled and used will be explained here.
 The source code of the example is as follows:
 
 ```cpp
+//#include <iostream>
+
 #include <bso/spatial_design/ms_building.hpp>
 #include <bso/spatial_design/cf_building.hpp>
 #include <bso/structural_design/sd_model.hpp>
 #include <bso/building_physics/bp_model.hpp>
 #include <bso/grammar/grammar.hpp>
 #include <bso/visualization/visualization.hpp>
+#include <time.h>
+#include <string>
 
+int end, begin = 0;
+template<class T>
+void out(const T& t, const bool& e = false,const bool& i = false, const bool& verbose = false)
+{
+	if (!verbose) return;
+	std::cout << t;
+	end = clock();
+	if (i) std::cout << " (" << 1000*(end-begin)/CLOCKS_PER_SEC << " ms)";
+	if (e) std::cout << std::endl;
+	begin = end;
+} // out()
+
+using namespace bso;
 int main(int argc, char* argv[])
 {
+	//freopen("out.txt","w",stdout);
+	clock_t tStart = clock();
+	
 	// initialize a movable sizable model named MS
-	bso::spatial_design::ms_building MS("ms_input_file.txt");
+	std::cout << "Please insert the character for the design to analyze either A, B or C: ";
+	char design;
+	std::cin >> design;
+	std::string design_str(1,design);
+	std::string file_name = "design_" + design_str;
+
+	bso::spatial_design::ms_building MS(file_name);
+	out("Created an MS model",true,true,true);
 	
 	// convert MS to a conformal model name CF
 	bso::spatial_design::cf_building CF(MS);
+	out("Created an CF model",true,true,true);
 	
 	// create an instance of the grammar base class named gram using CF
 	bso::grammar::grammar gram(CF);
+	out("Created an gram model",true,true,true);
 	
-	// use the default structural design grammar to create a structural
-	// design named SD, using settings defined in 
-	// settings/sd_settings.txt
+	// use the delault structural design grammar to create a structural 
+	// design named SD, using settings defined in settings/sd_settings.txt
 	bso::structural_design::sd_model SD = gram.sd_grammar<bso::grammar::DEFAULT_SD_GRAMMAR>(std::string("settings/sd_settings.txt"));
+	out("Created an SD model",true,true,true);
 	
-	// analyze the structural model
+	// analyse the structural model
 	SD.analyze();
-
+	out("Analyzed SD model and time taken to analyze and mesh model ",true,true,true);
+	
 	// output result of the analysis
 	std::cout << "Structural compliance: " << SD.getTotalResults().mTotalStrainEnergy << std::endl;
-	
-	// use the default building physics design grammar to create a
-	// building physics model named BP, using settings defined in 
-	// settings/bp_settings.txt
-	bso::building_physics::bp_model BP = gram.bp_grammar<bso::grammar::DEFAULT_BP_GRAMMAR>(std::string("settings/bp_settings.txt"));
-	
-	// simulate the periods defined in bp_settings.txt
-	// using the runge_kutta_dopri5 solver with both a
-	// relative and an absolute error of 1e-3
-	BP.simulatePeriods("runge_kutta_dopri5",1e-3,1e-3);
-	
-	// output result of the simulation
-	std::cout << "Total heating energy: " << BP.getTotalResults().mTotalHeatingEnergy << std::endl;
-	std::cout << "Total cooling energy: " << BP.getTotalResults().mTotalCoolingEnergy << std::endl;
+	std::cout << "Time taken: " << ((clock() - tStart)/CLOCKS_PER_SEC) << "sec." << std::endl;
 	
 	// visualize the different models
 	bso::visualization::initVisualization(argc, argv);
 	bso::visualization::visualize(MS);
 	bso::visualization::visualize(CF,"rectangle");
 	bso::visualization::visualize(CF,"cuboid");
-	bso::visualization::visualize(SD,"component");
+	bso::visualization::visualize(SD,"strain_energy");
 	bso::visualization::visualize(SD,"element");
-	bso::visualization::visualize(BP);
+	//bso::visualization::visualize(BP);
 	bso::visualization::endVisualization();
 	
 	return 0;
-}
-```
+}```
 
-A make file has been added to the directory of the example, which can be used to compile the code.
+A make file has been added to the same source directory , which can be used to compile the code.
 In the makefile, check if the dependencies (Eigen and Boost) are linked to the locations of your local machine.
 For instance, check if the line `BOOST = /usr/include/boost` is correctly linking to the Boost library on your local machine.
 
 The example can then be compiled by typing the following command in the terminal:
 
 ```bash
-$ make clean all
+$ make cls clean all
 ```
 
 Run the example by typing the following command in the terminal:
 
 ```bash
-$ ./example
+$ ./main
 ```
-
-The output should then look as follows.
+The code request which design you want to run, which the user can insert by either specifying design 'A', 'B', or 'C'. 
+Afterwards, the code is run and the following output should then look as follows.
 
 ```bash
-> Structural compliance: 4054.5
-> Total heating energy: 106.819
-> Total cooling energy: 15.9503
+Please insert the character for the design to analyze either A, B or C: A
+Created an MS model (5 ms)
+Created an CF model (1 ms)
+Created an gram model (1 ms)
+Created an SD model (0 ms)
+Number of overlaps: 2003194941
+generateNFT check
+Amount of clouds: 18
+Values of rows will be added up
+Values of columns will be added up
+Wind load is removed
+Recount global DOFs
+Before removing rows and columns.
+After removing rows and columns.
+GSM is rebuild
+Tie method is done
+Analyzed SD model and time taken to analyze and mesh model  (41 ms)
+Structural compliance: 1110.15
+Time taken: 0sec.
 ```
 
-Note that the directory also includes settings files to define building spatial designs, structural design settings, and building physics settings.
+Note that the directory also includes settings files to define building spatial designs, structural design settings, and if included also building physics settings.
 For more information about these the reader is referred to the [paper](https://doi.org/10.1016/j.aei.2018.01.003) in which the toolbox is presented.
 
 ### How to run unit tests
